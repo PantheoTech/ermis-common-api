@@ -2,8 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import BusinessRoutes from './src/modules/business/routes/BusinessRoutes.js';
 import middlewareLogger from './src/config/middleware/logger.js';
-import logger from '../../common/functions/logger.js';
-import { LOG_LEVEL } from '../../common/constants/main.js';
+import logger from '../../core/common/functions/logger.js';
+import { LOG_LEVEL } from '../../core/common/constants/main.js';
 
 const app = express();
 const env = dotenv.config().parsed;

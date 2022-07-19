@@ -1,6 +1,6 @@
 import { body, param } from 'express-validator';
-import { LOG_LEVEL } from '../../../../../../common/constants/main.js';
-import logger from '../../../../../../common/functions/logger.js';
+import { LOG_LEVEL } from '../../../../../../core/common/constants/main.js';
+import logger from '../../../../../../core/common/functions/logger.js';
 
 class BusinessValidator {
     create() {
@@ -13,13 +13,17 @@ class BusinessValidator {
                 .withMessage('CNPJ must be 14 chars')
                 .notEmpty()
                 .withMessage('CNPJ must be informed'),
-            body('name')
-                .isString()
-                .withMessage('name must be a string')
-                .isLength({ min: 1, max: 200 })
-                .withMessage("Length's name must be: [min: 1, max: 200]")
+            body('company_name')
                 .notEmpty()
-                .withMessage('name must be informed'),
+                .withMessage('company_name must be informed')
+                .isString()
+                .withMessage('company_name must be a string')
+                .isLength({ min: 1, max: 200 })
+                .withMessage("Field 'company_name' length must be: [min: 1, max: 200]"),
+            body('trading_name')
+                .isString()
+                .withMessage('trading_name must be a string')
+                .optional(),
             body('address')
                 .isString()
                 .isLength({ min: 5, max: 200 })

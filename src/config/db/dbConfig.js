@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
-import { LOG_LEVEL } from '../../../../../common/constants/main.js'
+import { LOG_LEVEL } from '../../../../../core/common/constants/main.js'
 import { Sequelize } from 'sequelize';
-import logger from '../../../../../common/functions/logger.js';
+import logger from '../../../../../core/common/functions/logger.js';
 
 const env = dotenv.config().parsed;
 const db = new Sequelize(env.DB, env.USER, env.PASS, {
@@ -20,6 +20,7 @@ await db.authenticate().then(() => {
     logger(LOG_LEVEL.LOG_INFO, "Connection with db has been established!");
 }).catch((err) => {
     logger(LOG_LEVEL.LOG_ERR, err.message);
+    throw new Error(err.message);
 });
 
 export default db;

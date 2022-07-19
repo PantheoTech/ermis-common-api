@@ -16,9 +16,13 @@ const BusinessModel = db.define('tbl_business', {
             len: 14
         }
     },
-    name: {
+    company_name: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    trading_name: {
+        type: DataTypes.STRING,
+        allowNull: true
     },
     address: {
         type: DataTypes.STRING,
@@ -58,14 +62,21 @@ const BusinessModel = db.define('tbl_business', {
         validate: {
             max: 150
         }
+    },
+    data_receita: {
+        type: DataTypes.JSON,
+        allowNull: true
     }
-});
+},
+    { paranoid: true, timestamps: true }
+);
 
 ResponsibleModel.hasOne(BusinessModel, {
     onDelete: 'RESTRICT',
     onUpdate: 'RESTRICT',
     foreignKey: 'id_responsible'
 });
+
 BusinessModel.Responsible = BusinessModel.belongsTo(ResponsibleModel, {
     as: 'responsible',
     foreignKey: 'id_responsible'

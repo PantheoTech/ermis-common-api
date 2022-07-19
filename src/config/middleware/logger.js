@@ -1,5 +1,5 @@
-import { LOG_LEVEL } from '../../../../../common/constants/main.js';
-import logger from '../../../../../common/functions/logger.js';
+import { LOG_LEVEL } from '../../../../../core/common/constants/main.js';
+import logger from '../../../../../core/common/functions/logger.js';
 
 export default function middlewareLogger(req, res, next) {
     var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;

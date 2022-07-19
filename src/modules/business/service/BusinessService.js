@@ -1,9 +1,8 @@
-import ApiException from '../../../../../../common/exceptions/ApiException.js';
+import ApiException from '../../../../../../core/common/exceptions/ApiException.js';
 import BusinessRepository from '../repository/BusinessRepository.js';
-import ResponsibleRepository from '../../responsible/repository/ResponsibleRepository.js';
 import { validationResult } from "express-validator";
-import { HTTP_CODE, LOG_LEVEL } from '../../../../../../common/constants/main.js';
-import logger from '../../../../../../common/functions/logger.js';
+import { HTTP_CODE, LOG_LEVEL } from '../../../../../../core/common/constants/main.js';
+import logger from '../../../../../../core/common/functions/logger.js';
 
 class BusinessService {
     async findAll() {

@@ -6,7 +6,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "startDev": "nodemon app.js"
+    "startDev": "nodemon app.js",
+    "createTables": "node src/config/db/createTables.js"
   },
   "dependencies": {
     "dotenv": "^16.0.0",
